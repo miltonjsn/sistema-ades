@@ -1,8 +1,3 @@
-colar:
-
-markdown
-Copiar
-Editar
 # Sistema ADES
 
 Sistema web de controle de presença para os projetos da ADES (Associação de Desenvolvimento Social), desenvolvido como parte do Projeto Integrador III do curso de Engenharia da Computação na [UNIVESP](https://univesp.br).
@@ -26,37 +21,31 @@ Sistema web de controle de presença para os projetos da ADES (Associação de D
 
 Clone o repositório:
 
-```bash
+```
 git clone https://github.com/miltonjsn/sistema-ades.git
 cd sistema-ades
+
+
 Instale as dependências:
 
-bash
-Copiar
-Editar
 npm install
+
 Configure o banco de dados:
 
-Crie o banco sistema_ades no MySQL
+1. Crie o banco sistema_ades no MySQL
 
-Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
+2. Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
 
-env
-Copiar
-Editar
 DATABASE_URL="mysql://root:1234@localhost:3306/sistema_ades"
+
 Sincronize o Prisma com o banco:
 
-bash
-Copiar
-Editar
 npx prisma db pull
+
 Inicie o servidor de desenvolvimento:
 
-bash
-Copiar
-Editar
 npm run dev
+
 Abra http://localhost:3000 no navegador.
 
 📂 Estrutura do Projeto
