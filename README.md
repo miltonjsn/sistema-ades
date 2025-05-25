@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+colar:
 
-## Getting Started
+markdown
+Copiar
+Editar
+# Sistema ADES
 
-First, run the development server:
+Sistema web de controle de presença para os projetos da ADES (Associação de Desenvolvimento Social), desenvolvido como parte do Projeto Integrador III do curso de Engenharia da Computação na [UNIVESP](https://univesp.br).
+
+## 🔧 Tecnologias Utilizadas
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MySQL](https://www.mysql.com/) com [Prisma ORM](https://www.prisma.io/)
+- Hospedagem local com Linux Mint
+
+## 🚀 Funcionalidades
+
+- Cadastro e listagem de participantes
+- Controle de presença por evento
+- Layout responsivo com acessibilidade (botões de ajuste de fonte)
+- Interface intuitiva para uso em campo
+
+## ▶️ Como Rodar Localmente
+
+Clone o repositório:
 
 ```bash
+git clone https://github.com/miltonjsn/sistema-ades.git
+cd sistema-ades
+Instale as dependências:
+
+bash
+Copiar
+Editar
+npm install
+Configure o banco de dados:
+
+Crie o banco sistema_ades no MySQL
+
+Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
+
+env
+Copiar
+Editar
+DATABASE_URL="mysql://root:1234@localhost:3306/sistema_ades"
+Sincronize o Prisma com o banco:
+
+bash
+Copiar
+Editar
+npx prisma db pull
+Inicie o servidor de desenvolvimento:
+
+bash
+Copiar
+Editar
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Abra http://localhost:3000 no navegador.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📂 Estrutura do Projeto
+app/: Páginas e rotas do Next.js
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+app/api/: Endpoints da API REST
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+prisma/: Schema e configuração do banco de dados
 
-## Learn More
+src/components/: Componentes reutilizáveis da interface
 
-To learn more about Next.js, take a look at the following resources:
+public/: Arquivos estáticos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✍️ Autor
+Milton Neto – @miltonjsn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Projeto desenvolvido com fins acadêmicos e sociais, para auxiliar a gestão dos projetos comunitários realizados pela ADES.
