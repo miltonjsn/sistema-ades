@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model atividades {
+  id         Int         @id @default(autoincrement())
+  nome       String      @db.VarChar(100)
+  descricao  String?     @db.Text
+  projeto_id Int?
+  data       DateTime?   @db.Date
+  horario    DateTime?   @db.Time(0)
+  projetos   projetos?   @relation(fields: [projeto_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "atividades_ibfk_1")
+  presencas  presencas[]
+
+  @@index([projeto_id], map: "projeto_id")
+}
+
+model participantes {
+  id              Int         @id @default(autoincrement())
+  nome            String      @db.VarChar(100)
+  email           String?     @db.VarChar(100)
+  telefone        String?     @db.VarChar(20)
+  cpf             String?     @db.VarChar(14)
+  data_nascimento DateTime?   @db.Date
+  presencas       presencas[]
+}
+
+model presencas {
+  id              Int            @id @default(autoincrement())
+  participante_id Int?
+  atividade_id    Int?
+  data            DateTime?      @db.Date
+  participantes   participantes? @relation(fields: [participante_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "presencas_ibfk_1")
+  atividades      atividades?    @relation(fields: [atividade_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "presencas_ibfk_2")
+
+  @@index([atividade_id], map: "atividade_id")
+  @@index([participante_id], map: "participante_id")
+}
+
+model projetos {
+  id         Int          @id @default(autoincrement())
+  nome       String       @db.VarChar(100)
+  descricao  String?      @db.Text
+  atividades atividades[]
+}
